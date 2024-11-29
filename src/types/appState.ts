@@ -18,7 +18,7 @@ export type LockScreenType =
     }
   | false;
 
-export type ModaTypel =
+export type ModalType =
   | {
       isOpen: boolean;
       title: string;

@@ -1,4 +1,4 @@
-import { AppState } from "@/types/appState";
+import { AppState } from "..";
 import { indexedDBMiddleware } from "../middleware/indexdb.middleware";
 import { create } from "zustand";
 

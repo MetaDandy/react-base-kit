@@ -12,9 +12,16 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "baseUrl": ".",
+    "allowJs": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/types/*.ts",
+    "src/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

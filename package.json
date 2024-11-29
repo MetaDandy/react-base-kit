@@ -1,12 +1,17 @@
 {
   "name": "react-base-kit",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c",
-    "start": "rollup -c -w"
+    "start": "esbuild --watch esbuild.config.ts",
+    "build": "esbuild src/index.ts --bundle --outdir=dist --sourcemap --minify --platform=browser --target=esnext && tsc --emitDeclarationOnly --declaration --outDir dist/types && postcss src/styles/tailwind.css -o dist/styles.css"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -35,8 +40,12 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^22.10.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "esbuild": "^0.24.0",
+    "esbuild-plugin-postcss": "^0.2.1",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
